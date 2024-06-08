@@ -4,12 +4,19 @@
  */
 package Competidor;
 
+import Registro.Registros_Recorridos;
+import java.awt.event.KeyEvent;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author IBER LUIS
  */
 public class frm_competencia extends javax.swing.JFrame {
 
+    LinkedList<competidor> competidores = new LinkedList<>();
+    LinkedList<Registros_Recorridos> recorridos = new LinkedList<>();
     /**
      * Creates new form frm_competencia
      */
@@ -30,17 +37,25 @@ public class frm_competencia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        txt_codiGO = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txt_nombrE = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txt_numeRO = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txt_recorrido = new javax.swing.JTextField();
+        btn__regis_recorrido = new javax.swing.JButton();
+        btn_nuevo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        txt_codigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txt_nombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        txt_pais = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txt_numero = new javax.swing.JTextField();
-        txt_codigo = new javax.swing.JTextField();
-        txt_nombre = new javax.swing.JTextField();
-        txt_pais = new javax.swing.JTextField();
         btn_nuevo_registro = new javax.swing.JButton();
         btn_registrar = new javax.swing.JButton();
 
@@ -69,55 +84,135 @@ public class frm_competencia extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
-        );
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jLabel6.setText("Codigo:");
+
+        txt_codiGO.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_codiGOKeyReleased(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jLabel7.setText("Nombres:");
+
+        txt_nombrE.setEditable(false);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jLabel8.setText("Numero:");
+
+        txt_numeRO.setEditable(false);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jLabel9.setText("recorrido:");
+
+        btn__regis_recorrido.setText("Registrar recorido");
+        btn__regis_recorrido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn__regis_recorridoActionPerformed(evt);
+            }
+        });
+
+        btn_nuevo.setText("nuevo");
+        btn_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_numeRO, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_recorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_nombrE, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_codiGO, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(297, 297, 297))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(btn_nuevo)
+                .addGap(60, 60, 60)
+                .addComponent(btn__regis_recorrido)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txt_codiGO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txt_nombrE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txt_numeRO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txt_recorrido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn__regis_recorrido)
+                    .addComponent(btn_nuevo))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Registro de Etapas", jPanel3);
 
-        jPanel5.setBackground(new java.awt.Color(153, 153, 153));
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel2.setText("Codigo:");
+
+        txt_codigo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txt_codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_codigoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel3.setText("Nombres:");
 
+        txt_nombre.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel4.setText("Pais:");
+
+        txt_pais.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel5.setText("Numero:");
 
+        txt_numero.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         btn_nuevo_registro.setBackground(new java.awt.Color(0, 153, 204));
         btn_nuevo_registro.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         btn_nuevo_registro.setText("Nuevo registro");
+        btn_nuevo_registro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_nuevo_registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nuevo_registroActionPerformed(evt);
@@ -127,81 +222,63 @@ public class frm_competencia extends javax.swing.JFrame {
         btn_registrar.setBackground(new java.awt.Color(51, 255, 51));
         btn_registrar.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         btn_registrar.setText("Registrar");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_numero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(77, 77, 77)
-                        .addComponent(txt_pais, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(130, Short.MAX_VALUE)
-                        .addComponent(btn_nuevo_registro)
-                        .addGap(84, 84, 84)))
-                .addComponent(btn_registrar)
-                .addGap(139, 139, 139))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_nuevo_registro)
-                    .addComponent(btn_registrar))
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
+        btn_registrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_pais, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(btn_nuevo_registro)
+                        .addGap(62, 62, 62)
+                        .addComponent(btn_registrar)))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_nuevo_registro)
+                    .addComponent(btn_registrar))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Registro de Competidores", jPanel2);
@@ -240,6 +317,91 @@ public class frm_competencia extends javax.swing.JFrame {
         txt_codigo.requestFocus();
     }//GEN-LAST:event_btn_nuevo_registroActionPerformed
 
+    private void fnt_registar(String cod, String nom, String pa, String num){
+        if(cod.equals("") || nom.equals("") || pa.equals("") || num.equals("")){
+            JOptionPane.showMessageDialog(null, " Debe diligenciar todos los datos","!ERROR!",JOptionPane.ERROR_MESSAGE);
+        }else{
+            boolean sw1 = false;
+            boolean sw2 = false;
+            for(int i = 0; i < competidores.size(); i++){
+                if(cod.equals(competidores.get(i).getCodigoStr())){
+                 sw1 = true;
+                 break;
+                }
+            }
+                if(sw1 == true){
+                     JOptionPane.showMessageDialog(null, "Este codigo ya se encuentra registrado","!ERROR!",JOptionPane.ERROR_MESSAGE);
+                }else{
+                   for(int j = 0; j < competidores.size(); j++){
+                    if(num.equals(competidores.get(j).getNumeroStr())){
+                        sw2 = true;
+                        break;
+                    }
+                   }
+                    if(sw2 == true){
+                        JOptionPane.showMessageDialog(null, "Este numero de competidor ya ha sido" + " asignado ","error",JOptionPane.ERROR_MESSAGE);
+                    }else{
+                        competidores.add(new competidor(cod,nom,pa,num));
+                         JOptionPane.showMessageDialog(null, "Competidor registrado con exito" + "Registro" );
+                    }
+                   
+                }
+                        
+            }
+        
+    }
+    
+    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
+        fnt_registar(txt_codigo.getText(),
+        txt_nombre.getText(),
+        txt_pais.getText(),
+        txt_numero.getText());
+    }//GEN-LAST:event_btn_registrarActionPerformed
+
+    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_codigoActionPerformed
+
+    private void txt_codiGOKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codiGOKeyReleased
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            boolean sw = true;
+            int posicion = 0;
+            for(int i = 0; i < competidores.size(); i++){
+                if(txt_codiGO.getText().equals(competidores.get(i).getCodigoStr())){
+                    sw = true;
+                    posicion = i;
+                    break;
+                }
+            }
+            if(sw == true){
+                txt_nombrE.setText(competidores.get(posicion).getNombreStr());
+                txt_numeRO.setText(competidores.get(posicion).getNumeroStr());
+                txt_codiGO.setEditable(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "Competidor no registrado","!ERROR!",JOptionPane.ERROR_MESSAGE);
+            }   
+        }
+    }//GEN-LAST:event_txt_codiGOKeyReleased
+
+    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
+        txt_codiGO.setText("");
+        txt_nombrE.setText("");
+        txt_numeRO.setText("");
+        txt_recorrido.setText("");
+        txt_codiGO.requestFocus();
+        txt_codiGO.setEditable(true);
+    }//GEN-LAST:event_btn_nuevoActionPerformed
+
+    private void btn__regis_recorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn__regis_recorridoActionPerformed
+        if(txt_codiGO.getText().equals("")|| txt_recorrido.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe ingresar la informacion solicitada","!ERROR!",JOptionPane.ERROR_MESSAGE);
+        }else{
+            recorridos.add(new Registros_Recorridos(txt_codiGO.getText(),
+            Integer.parseInt(txt_recorrido.getText())));
+            JOptionPane.showMessageDialog(null, "Recorrido registrado con Exito","Guardar",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btn__regis_recorridoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,6 +438,8 @@ public class frm_competencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn__regis_recorrido;
+    private javax.swing.JButton btn_nuevo;
     private javax.swing.JButton btn_nuevo_registro;
     private javax.swing.JButton btn_registrar;
     private javax.swing.JLabel jLabel1;
@@ -283,15 +447,21 @@ public class frm_competencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTextField txt_codiGO;
     private javax.swing.JTextField txt_codigo;
+    private javax.swing.JTextField txt_nombrE;
     private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_numeRO;
     private javax.swing.JTextField txt_numero;
     private javax.swing.JTextField txt_pais;
+    private javax.swing.JTextField txt_recorrido;
     // End of variables declaration//GEN-END:variables
 }
